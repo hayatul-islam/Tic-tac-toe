@@ -1,6 +1,6 @@
 import { calculateWinner } from "../utils/calculateWinner";
 
-export default function Board({ squires, setHistory, setIsNext, isNext }) {
+export default function Board({ squires, onPlay, isNext }) {
   let status;
   const winner = calculateWinner(squires);
   if (winner) {
@@ -20,8 +20,7 @@ export default function Board({ squires, setHistory, setIsNext, isNext }) {
     } else {
       nextSquares[i] = "X";
     }
-    setHistory(nextSquares);
-    setIsNext(!isNext);
+    onPlay(nextSquares);
   };
 
   return (
